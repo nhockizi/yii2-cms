@@ -39,22 +39,22 @@ class AdminModule extends \yii\base\Module implements BootstrapInterface
         }
         $this->setModules($modules);
 
-        if (Yii::$app instanceof yii\web\Application) {
-            define('IS_ROOT', !Yii::$app->user->isGuest && Yii::$app->user->identity->isRoot());
-            define('LIVE_EDIT', !Yii::$app->user->isGuest && Yii::$app->session->get('easyii_live_edit'));
-        }
+        // if (Yii::$app instanceof yii\web\Application) {
+        //     define('IS_ROOT', !Yii::$app->user->isGuest && Yii::$app->user->identity->isRoot());
+        //     define('LIVE_EDIT', !Yii::$app->user->isGuest && Yii::$app->session->get('easyii_live_edit'));
+        // }
     }
 
 
     public function bootstrap($app)
     {
-        Yii::setAlias('cms', '@vendor/nhockizi/cms');
+        Yii::setAlias('cms', '@vendor/nhockizi/yii2-cms');
 
-        if (!$app->user->isGuest && strpos($app->request->pathInfo, 'admin') === false) {
-            $app->on(Application::EVENT_BEFORE_REQUEST, function () use ($app) {
-                $app->getView()->on(View::EVENT_BEGIN_BODY, [$this, 'renderToolbar']);
-            });
-        }
+        // if (!$app->user->isGuest && strpos($app->request->pathInfo, 'admin') === false) {
+            // $app->on(Application::EVENT_BEFORE_REQUEST, function () use ($app) {
+            //     $app->getView()->on(View::EVENT_BEGIN_BODY, [$this, 'renderToolbar']);
+            // });
+        // }
     }
 
     public function renderToolbar()
@@ -67,7 +67,8 @@ class AdminModule extends \yii\base\Module implements BootstrapInterface
     {
         if ($this->_installed === null) {
             try {
-                $this->_installed = Yii::$app->db->createCommand("SHOW TABLES LIKE 'easyii_%'")->query()->count() > 0 ? true : false;
+                $db = Yii::$app->db;
+                $this->_installed = Yii::$app->db->createCommand("SHOW TABLES LIKE '".$db->tablePrefix."%'")->query()->count() > 0 ? true : false;
             } catch (\Exception $e) {
                 $this->_installed = false;
             }

@@ -8,9 +8,8 @@
     "license": "GNU GPL V3",
     "minimum-stability": "dev",
     "support": {
-        "wiki": "http://easyiicms.com/docs",
-        "source": "https://github.com/noumo/easyii.git",
-        "issues": "https://github.com/noumo/easyii/issues"
+        "source": "https://github.com/nhockizi/yii2-cms.git",
+        "issues": "https://github.com/nhockizi/yii2-cms/issues"
     },
     "authors": [
         {
@@ -29,7 +28,7 @@
         "psr-4": {
             "nhockizi\\cms\\": "/"
         }
-    },
+    }, 
     "extra": {
         "asset-installer-paths": {
             "npm-asset-library": "vendor/npm",
