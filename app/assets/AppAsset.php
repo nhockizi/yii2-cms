@@ -5,7 +5,7 @@ class AppAsset extends \yii\web\AssetBundle
 {
     public $sourcePath = '@app/media';
     public $css = [
-        'css/styles.css',
+        'css/site.css',
     ];
     public $js = [
     ];

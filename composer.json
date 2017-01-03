@@ -12,7 +12,6 @@
         "php": ">=5.4.0"
     },
     "require-dev": {
-        "nhockizi/yii2-cms": "dev-master",
         "nhockizi/yii2-install": "dev-master",
         "yiisoft/yii2-codeception": "*",
         "yiisoft/yii2-debug": "*",
@@ -37,7 +36,7 @@
                     "uploads": "0777",
                     "app/config": "0777",
                     "runtime": "0777",
-                    "runtime/logs": "0777"
+                    "config/db": "0777"
                 }
             ],
             "generateCookieValidationKey": [
@@ -51,7 +50,7 @@
                     "uploads": "0777",
                     "app/config": "0777",
                     "runtime": "0777",
-                    "runtime/logs": "0777"
+                    "config/db": "0777"
                 }
             ],
             "generateCookieValidationKey": [

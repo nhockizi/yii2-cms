@@ -63,4 +63,4 @@ $config = [
     ],
     'params' => $params,
 ];
-return array_merge_recursive($config, require($webroot . '/vendor/nhockizi/yii2-cms/config/cms.php'));
+return array_merge_recursive($config, require($webroot . '/vendor/nhockizi/yii2-install/config/install.php'));
